@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Aniket Kumar — Aspiring UI/UX Designer and Computer Science undergraduate. Portfolio showcasing UI/UX design, graphic design, photography, and technology projects." />
+  <meta name="keywords"
+    content="Aniket Kumar, UI UX Designer, Portfolio, Graphic Design, Photography, SIT, Computer Science" />
+  <meta name="author" content="Aniket Kumar" />
+  <meta property="og:title" content="Aniket Kumar — Aspiring UI/UX Designer" />
+  <meta property="og:description"
+    content="Computer Science undergraduate blending technology, design, and visual creativity to build meaningful digital experiences." />
+  <meta property="og:type" content="website" />
+  <title>Aniket Kumar — Ninja Designer | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=Bebas+Neue&family=Orbitron:wght@400;600;700;900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
+
+  <!-- Particle canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="#home" class="nav-logo" aria-label="Aniket Kumar — Home">AK<span>.</span></a>
+
+      <ul class="nav-links" role="list" style="position: relative;">
+        <li id="ninja-runner-container"
+          style="position: absolute; top: 28px; left: 0; pointer-events: none; transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); opacity: 0; z-index: 10;">
+          <img id="ninja-runner" src="ninja.gif" alt=""
+            style="height: 30px; width: auto; filter: drop-shadow(0 0 5px rgba(255,107,0,0.5)); transform: scaleX(-1);" />
+        </li>
+        <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#achievements" class="nav-link" data-section="achievements">Achievements</a></li>
+        <li><a href="#certificates" class="nav-link" data-section="certificates">Certificates</a></li>
+        <li><a href="#creative" class="nav-link" data-section="creative">Creative</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta" aria-label="Go to contact section">Let's Talk</a>
+
+      <button id="nav-hamburger" class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false"
+        aria-controls="nav-mobile">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="nav-mobile" class="nav-mobile" role="menu" aria-label="Mobile navigation">
+    <a href="#home" class="nav-link" role="menuitem">Home</a>
+    <a href="#about" class="nav-link" role="menuitem">About</a>
+    <a href="#skills" class="nav-link" role="menuitem">Skills</a>
+    <a href="#projects" class="nav-link" role="menuitem">Projects</a>
+    <a href="#experience" class="nav-link" role="menuitem">Experience</a>
+    <a href="#achievements" class="nav-link" role="menuitem">Achievements</a>
+    <a href="#certificates" class="nav-link" role="menuitem">Certificates</a>
+    <a href="#creative" class="nav-link" role="menuitem">Creative Work</a>
+    <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+  </div>
+
+
+  <!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+  <section id="home" class="section" aria-label="Introduction">
+    <!-- Hover Spotlight Background -->
+    <div id="hover-background" aria-hidden="true"></div>
+
+    <!-- Background effects -->
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+
+    <div class="hero-shape hero-shape-1" aria-hidden="true"></div>
+    <div class="hero-shape hero-shape-2" aria-hidden="true"></div>
+    <div class="hero-shape hero-shape-3" aria-hidden="true"></div>
+    <div class="hero-shape hero-shape-4" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+
+      <!-- Text side -->
+      <div class="hero-text">
+        <div class="hero-badge" aria-label="Status">
+          <span class="dot" aria-hidden="true"></span>
+          ⚡ Ninja Mode: Active
+        </div>
+
+        <h1 class="hero-name">
+          ANIKET<br><span class="highlight">KUMAR</span>
+        </h1>
+        <!-- Anime JP subtitle -->
+        <div
+          style="font-family:'Noto Sans JP',sans-serif; font-size:0.8rem; letter-spacing:0.3em; color:rgba(255,107,0,0.5); margin-bottom:4px; margin-top:-8px;">
+          忍者 デザイナー</div>
+
+        <p class="hero-role" aria-live="polite">
+          <span id="typewriter" aria-label="Aspiring UI/UX Designer"></span><span class="cursor"
+            aria-hidden="true"></span>
+        </p>
+
+        <p class="hero-tagline">
+          Computer Science undergraduate blending technology, design, and visual
+          creativity to build meaningful digital experiences.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary" id="hero-view-work">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+              aria-hidden="true">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            View My Work
+          </a>
+          <a href="#contact" class="btn btn-outline" id="hero-connect">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+              aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            Let's Connect
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual side -->
+      <div class="hero-visual">
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-bg" aria-hidden="true"></div>
+          <div class="hero-photo-inner">
+            <!-- Replace me.jpg with the actual photo file -->
+            <img src="me.jpg" alt="Aniket Kumar — Aspiring UI/UX Designer"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="hero-photo-placeholder" style="display:none;" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              <span>Add me.jpg to the<br>portfolio folder</span>
+            </div>
+          </div>
+
+          <!-- Floating stat cards -->
+          <div class="hero-stat hero-stat-1" aria-label="2 hackathon wins">
+            <div class="hero-stat-num">2×</div>
+            <div class="hero-stat-label">🏆 Hackathon<br>Victor</div>
+          </div>
+          <div class="hero-stat hero-stat-2" aria-label="50+ design assets created">
+            <div class="hero-stat-num">90+</div>
+            <div class="hero-stat-label">⚡ Design<br>Jutsu</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     ABOUT SECTION
+     ============================================================ -->
+  <section id="about" class="section section--alt" aria-label="About Aniket Kumar">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Photo col -->
+        <div class="about-photo-col reveal-left">
+          <div class="about-accent-bar" aria-hidden="true"></div>
+          <div class="about-photo-frame">
+            <img src="me.jpg" alt="Aniket Kumar in SIT college formal attire"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="about-placeholder" style="display:none;" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                style="opacity:0.4">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              <span>Add me.jpg to<br>the portfolio folder</span>
+            </div>
+          </div>
+          <div class="about-accent-dot" aria-hidden="true"></div>
+        </div>
+
+        <!-- Text col -->
+        <div class="about-text reveal-right">
+          <div class="section-label" aria-hidden="true">About Me</div>
+          <h2 class="section-title">Ninja Path of <span>Creativity</span></h2>
+
+          <p class="about-bio">
+            I'm <strong>Aniket Kumar</strong>, a Computer Science and Engineering undergraduate at
+            <strong>Siliguri Institute of Technology</strong>. My journey sits at the intersection
+            of technology and visual design — I'm passionate about crafting experiences that
+            are not just functional, but genuinely beautiful and intuitive.
+          </p>
+          <p class="about-bio">
+            My long-term goal is to grow into a <strong>UI/UX Designer</strong>, and I'm
+            building toward that by working on real design challenges, hackathon projects,
+            and creative work that spans graphic design, photography, photo editing, and
+            content creation.
+          </p>
+          <p class="about-bio">
+            I've had the opportunity to contribute to college events, lead a design team,
+            win competitions, and create <strong>90+ design assets</strong> for digital and
+            offline platforms.
+          </p>
+
+          <!-- Interest chips -->
+          <div class="about-interests" aria-label="Interests and skills">
+            <span class="interest-chip">🎨 UI/UX Design</span>
+            <span class="interest-chip purple">✏️ Graphic Design</span>
+            <span class="interest-chip">📷 Photography</span>
+            <span class="interest-chip purple">🖼️ Photo Editing</span>
+            <span class="interest-chip">🎬 Video Editing</span>
+            <span class="interest-chip purple">📱 Content Creation</span>
+            <span class="interest-chip">💻 Computer Science</span>
+            <span class="interest-chip purple">🏆 Hackathons</span>
+          </div>
+
+          <!-- Positioning statement -->
+          <div class="about-statement">
+            <p>"Designing visual experiences with a technical mindset."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     EDUCATION SECTION
+     ============================================================ -->
+  <section id="education" class="section" aria-label="Education">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" aria-hidden="true">Education</div>
+        <h2 class="section-title">Academy <span>Training Arc</span></h2>
+        <p class="section-sub">Building a strong CS foundation while mastering design at every step.</p>
+      </div>
+
+      <div class="edu-timeline" role="list">
+
+        <!-- BTech -->
+        <div class="edu-item reveal delay-1" role="listitem">
+          <div class="edu-dot" aria-hidden="true">B.<br>Tech</div>
+          <div class="edu-card">
+            <div class="edu-degree">Bachelor of Technology — Computer Science &amp; Engineering</div>
+            <div class="edu-institution">Siliguri Institute of Technology (SIT)</div>
+            <div class="edu-meta">
+              <span>📅 2023 — Present</span>
+              <span class="edu-percentage">📊 65.7%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- XII -->
+        <div class="edu-item reveal delay-2" role="listitem">
+          <div class="edu-dot" aria-hidden="true">XII</div>
+          <div class="edu-card">
+            <div class="edu-degree">Higher Secondary — Class XII</div>
+            <div class="edu-institution">State Board</div>
+            <div class="edu-meta">
+              <span>📅 Passed 2023</span>
+              <span class="edu-percentage">📊 67.6%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- X -->
+        <div class="edu-item reveal delay-3" role="listitem">
+          <div class="edu-dot" aria-hidden="true">X</div>
+          <div class="edu-card">
+            <div class="edu-degree">Secondary — Class X</div>
+            <div class="edu-institution">CBSE Board</div>
+            <div class="edu-meta">
+              <span>📅 Passed 2021</span>
+              <span class="edu-percentage">📊 73.6%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     SKILLS SECTION
+     ============================================================ -->
+  <section id="skills" class="section section--alt" aria-label="Skills and tools">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" aria-hidden="true">Skills</div>
+        <h2 class="section-title">My Jutsu <span>Arsenal</span></h2>
+        <p class="section-sub">A blend of technical CS fundamentals and hands-on design tools.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <!-- Programming -->
+        <div class="skill-category reveal delay-1">
+          <div class="skill-cat-icon" aria-hidden="true">💻</div>
+          <div class="skill-cat-title">Programming Languages</div>
+          <div class="skill-tags">
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">Java</span>
+          </div>
+          <img src="images/1.png" alt="" class="skill-anime-char" />
+        </div>
+
+        <!-- CS Fundamentals -->
+        <div class="skill-category reveal delay-2">
+          <div class="skill-cat-icon purple" aria-hidden="true">🧠</div>
+          <div class="skill-cat-title">CS Fundamentals</div>
+          <div class="skill-tags">
+            <span class="skill-tag purple">Data Structures &amp; Algorithms</span>
+            <span class="skill-tag purple">Object-Oriented Programming</span>
+            <div style="flex-basis: 100%; height: 0; margin: 0;"></div>
+            <span class="skill-tag purple">Debugging</span>
+            <span class="skill-tag purple">SDLC</span>
+          </div>
+          <img src="images/2.png" alt="" class="skill-anime-char" />
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-category reveal delay-3">
+          <div class="skill-cat-icon warm" aria-hidden="true">🗄️</div>
+          <div class="skill-cat-title">Databases</div>
+          <div class="skill-tags">
+            <span class="skill-tag warm">MongoDB</span>
+            <span class="skill-tag warm">Oracle SQL</span>
+          </div>
+          <img src="images/3.png" alt="" class="skill-anime-char" />
+        </div>
+
+        <!-- Design -->
+        <div class="skill-category reveal delay-1">
+          <div class="skill-cat-icon pink" aria-hidden="true">🎨</div>
+          <div class="skill-cat-title">Design</div>
+          <div class="skill-tags">
+            <span class="skill-tag pink">UI/UX Design</span>
+            <span class="skill-tag pink">Wireframing</span>
+            <span class="skill-tag pink">UI Prototyping</span>
+            <span class="skill-tag pink">Graphic Design</span>
+            <span class="skill-tag pink">Photo Editing</span>
+            <span class="skill-tag pink">Video Editing</span>
+          </div>
+          <img src="images/4.png" alt="" class="skill-anime-char" />
+        </div>
+
+        <!-- Design Tools -->
+        <div class="skill-category reveal delay-2">
+          <div class="skill-cat-icon purple" aria-hidden="true">🛠️</div>
+          <div class="skill-cat-title">Design Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag purple">Figma</span>
+            <span class="skill-tag purple">Adobe Photoshop</span>
+            <span class="skill-tag purple">Adobe After Effects</span>
+            <span class="skill-tag purple">Lightroom</span>
+            <span class="skill-tag purple">Canva</span>
+            <span class="skill-tag purple">FlutterFlow</span>
+          </div>
+          <img src="images/5.png" alt="" class="skill-anime-char" />
+        </div>
+
+        <!-- Dev Tools -->
+        <div class="skill-category reveal delay-3">
+          <div class="skill-cat-icon" aria-hidden="true">⚙️</div>
+          <div class="skill-cat-title">Dev &amp; Platforms</div>
+          <div class="skill-tags">
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Google Colab</span>
+            <span class="skill-tag">Vercel</span>
+          </div>
+          <img src="images/6.png" alt="" class="skill-anime-char" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     PROJECTS SECTION
+     ============================================================ -->
+  <section id="projects" class="section" aria-label="Projects">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" aria-hidden="true">Projects</div>
+        <h2 class="section-title">S-Rank <span>Missions</span></h2>
+        <p class="section-sub">Hackathon-winning projects combining technical depth with design thinking.</p>
+      </div>
+
+      <div class="projects-wrap">
+
+        <!-- PROJECT 1: TRUECRED -->
+        <article class="project-card reveal" aria-label="TRUECRED project">
+          <div class="project-visual">
+            <div class="project-badge" aria-label="Award">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              SIH 2025 — 1st Place
+            </div>
+            <div class="project-icon-wrap" aria-hidden="true">🔐</div>
+            <div class="project-num" aria-hidden="true">01</div>
+          </div>
+
+          <div class="project-content">
+            <div class="project-category">Security · Web Platform · Hackathon Winner</div>
+            <h3 class="project-title">TRUECRED — Certificate Verification System</h3>
+
+            <div class="project-problem">
+              <strong>Problem:</strong> Forged and fraudulent academic certificates are a growing concern,
+              undermining trust in educational credentials.
+            </div>
+
+            <p class="project-desc">
+              A secure and reliable certificate verification system designed to detect forged academic certificates
+              using RSA-based digital signatures and cryptographic hashing. Features role-based dashboards for
+              universities, employers, and authorized authorities.
+            </p>
+
+            <div class="project-features" aria-label="Key features">
+              <span class="project-feature-tag">RSA Digital Signatures</span>
+              <span class="project-feature-tag">Cryptographic Hashing</span>
+              <span class="project-feature-tag">OCR Extraction</span>
+              <span class="project-feature-tag">Role-Based Dashboards</span>
+              <span class="project-feature-tag">University Management</span>
+              <span class="project-feature-tag">Employer Verification</span>
+              <span class="project-feature-tag">Data Integrity</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="https://github.com/trurecred6-creator/Truecred-1.git" target="_blank" rel="noopener noreferrer"
+                class="project-link" aria-label="View TRUECRED on GitHub">
+                <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: LOCAL FAVES -->
+        <article class="project-card reverse reveal" aria-label="Local Faves project">
+          <div class="project-visual"
+            style="background: linear-gradient(135deg, rgba(167,139,250,0.08), rgba(79,142,247,0.05));">
+            <div class="project-badge"
+              style="background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.4); color: var(--accent-purple);"
+              aria-label="Award">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              Techfest 2024 — 1st Place
+            </div>
+            <div class="project-icon-wrap"
+              style="background:rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.3);" aria-hidden="true">📍</div>
+            <div class="project-num" style="color: rgba(167,139,250,0.12);" aria-hidden="true">02</div>
+          </div>
+
+          <div class="project-content">
+            <div class="project-category" style="color: var(--accent-purple);">UI/UX Design · Mobile Platform · Local
+              Discovery</div>
+            <h3 class="project-title">Local Faves — Local Discovery Platform</h3>
+
+            <div class="project-problem"
+              style="border-left-color: var(--accent-purple); background: rgba(167,139,250,0.06);">
+              <strong style="color: var(--accent-purple);">Problem:</strong> Discovering nearby shops, restaurants,
+              and offers requires juggling multiple apps — there's no single unified local discovery experience.
+            </div>
+
+            <p class="project-desc">
+              A beautifully designed local discovery platform helping users explore nearby shops, restaurants,
+              discounts, and food categories through a single intuitive interface. Built with a strong
+              focus on information architecture and user experience.
+            </p>
+
+            <div class="project-features" aria-label="Key features">
+              <span class="project-feature-tag"
+                style="background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); color: var(--accent-purple);">Search</span>
+              <span class="project-feature-tag"
+                style="background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); color: var(--accent-purple);">Discount
+                Vouchers</span>
+              <span class="project-feature-tag"
+                style="background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); color: var(--accent-purple);">Location
+                Maps</span>
+              <span class="project-feature-tag"
+                style="background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); color: var(--accent-purple);">Shop
+                Profiles</span>
+              <span class="project-feature-tag"
+                style="background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); color: var(--accent-purple);">Category
+                Discovery</span>
+              <span class="project-feature-tag"
+                style="background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); color: var(--accent-purple);">Social
+                Activity Feed</span>
+              <span class="project-feature-tag"
+                style="background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); color: var(--accent-purple);">User
+                Profiles</span>
+              <span class="project-feature-tag"
+                style="background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); color: var(--accent-purple);">Personalized
+                Content</span>
+            </div>
+
+            <div class="project-actions">
+              <span class="project-link" aria-label="Figma link coming soon" style="opacity:0.5; cursor:default;">
+                <svg width="14" height="14" viewBox="0 0 38 57" fill="currentColor" aria-hidden="true">
+                  <path d="M19 28.5A9.5 9.5 0 1 1 28.5 19a9.5 9.5 0 0 1-9.5 9.5z" />
+                  <path d="M9.5 57A9.5 9.5 0 0 1 9.5 38H19v9.5A9.5 9.5 0 0 1 9.5 57z" />
+                  <path d="M19 0h-9.5a9.5 9.5 0 0 0 0 19H19z" />
+                  <path d="M28.5 19H19v19h9.5a9.5 9.5 0 0 0 0-19z" />
+                  <path d="M9.5 19H19V0H9.5a9.5 9.5 0 0 0 0 19z" />
+                </svg>
+                Figma (coming soon)
+              </span>
+              <span class="project-link"
+                style="border-color: rgba(167,139,250,0.3); color: var(--accent-purple); opacity:0.5; cursor:default;">
+                Live Demo (coming soon)
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     EXPERIENCE SECTION
+     ============================================================ -->
+  <section id="experience" class="section section--alt" aria-label="Work experience">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" aria-hidden="true">Experience</div>
+        <h2 class="section-title">Battle <span>Experience</span></h2>
+        <p class="section-sub">Design leadership, creative production, and event contributions at college.</p>
+      </div>
+
+      <div class="experience-grid">
+
+        <!-- SIT Ideathon -->
+        <div class="exp-card reveal delay-1">
+          <div class="exp-header">
+            <div class="exp-org">SIT Ideathon</div>
+            <div class="exp-role">Graphic Designer &amp; Social Media Manager</div>
+            <div class="exp-period">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              Jan 2025 — Present
+            </div>
+          </div>
+
+          <ul class="exp-contributions" role="list" aria-label="Contributions">
+            <li>Designed and edited <strong>40+ creative assets</strong> including posters, banners, and promotional
+              graphics</li>
+            <li>Created social media content — photos, videos, and motion graphics for digital campaigns</li>
+            <li>Handled photo editing, color correction, and video editing for events</li>
+            <li>Managed social media creatives and supported event promotion across digital and offline platforms</li>
+          </ul>
+
+          <div class="exp-highlight" aria-label="Highlight">
+            🎨 40+ Creative Assets Designed
+          </div>
+        </div>
+
+        <!-- Computer Engineers' Society -->
+        <div class="exp-card reveal delay-2">
+          <div class="exp-header">
+            <div class="exp-org">Computer Engineers' Society, SIT</div>
+            <div class="exp-role">Team Lead &amp; Content Designer</div>
+            <div class="exp-period">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              Sep 2024 — Jul 2025
+            </div>
+          </div>
+
+          <ul class="exp-contributions" role="list" aria-label="Contributions">
+            <li>Led a <strong>3-member design team</strong> for content and creative production</li>
+            <li>Coordinated poster and banner creation for society events and activities</li>
+            <li>Designed <strong>50+ creative assets</strong> for various college events</li>
+            <li>Created promotional materials for events and activities organized by the society</li>
+          </ul>
+
+          <div class="exp-highlight" aria-label="Highlight">
+            👥 Led 3-Member Design Team · 50+ Assets Created
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     ACHIEVEMENTS SECTION
+     ============================================================ -->
+  <section id="achievements" class="section" aria-label="Achievements and awards">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" aria-hidden="true">Achievements</div>
+        <h2 class="section-title">Bounty <span>Board</span></h2>
+        <p class="section-sub">Recognized for design, innovation, and leadership at national and college events.</p>
+      </div>
+
+      <div class="achievements-grid">
+
+        <!-- SIH 2025 -->
+        <div class="achievement-card winner reveal delay-1">
+          <div class="achievement-icon" aria-hidden="true">🏆</div>
+          <div class="achievement-place">1st Place</div>
+          <div class="achievement-title">Smart India Hackathon 2025</div>
+          <div class="achievement-project">Project: TRUECRED — Certificate Verification System</div>
+          <div class="achievement-date">Internal Hackathon · 2025</div>
+          <div class="achievement-desc">Won the internal hackathon round with a secure certificate verification platform
+            using RSA cryptography.</div>
+        </div>
+
+        <!-- Techfest 2024 -->
+        <div class="achievement-card winner reveal delay-2">
+          <div class="achievement-icon" aria-hidden="true">🥇</div>
+          <div class="achievement-place">1st Place</div>
+          <div class="achievement-title">Techfest — Software-Based Competition</div>
+          <div class="achievement-project">Project: Local Faves</div>
+          <div class="achievement-date">2024</div>
+          <div class="achievement-desc">Won the software competition with a local discovery platform designed for
+            intuitive mobile UX.</div>
+        </div>
+
+        <!-- SIT Ideathon 3.0 -->
+        <div class="achievement-card reveal delay-3">
+          <div class="achievement-icon" aria-hidden="true">🌟</div>
+          <div class="achievement-place">Recognition</div>
+          <div class="achievement-title">SIT Ideathon 3.0 — Leadership</div>
+          <div class="achievement-date">February 7, 2025</div>
+          <div class="achievement-desc">Recognized for exceptional dedication and leadership in organizing SIT Ideathon
+            3.0.</div>
+        </div>
+
+        <!-- SIH 2024 -->
+        <div class="achievement-card reveal delay-1">
+          <div class="achievement-icon" aria-hidden="true">💡</div>
+          <div class="achievement-place">Participant</div>
+          <div class="achievement-title">Smart India Hackathon 2024</div>
+          <div class="achievement-date">September 12–13, 2024</div>
+          <div class="achievement-desc">Participated in the Internal Hackathon at Siliguri Institute of Technology.
+          </div>
+        </div>
+
+        <!-- CODE BITES -->
+        <div class="achievement-card reveal delay-2">
+          <div class="achievement-icon" aria-hidden="true">⭐</div>
+          <div class="achievement-place">Certificate of Appreciation</div>
+          <div class="achievement-title">CODE BITES 4.0</div>
+          <div class="achievement-date">September 25, 2024 · Computer Engineers' Society</div>
+          <div class="achievement-desc">Recognized for active contribution to the CODE BITES 4.0 event.</div>
+        </div>
+
+        <!-- Quiz-o-Mania -->
+        <div class="achievement-card reveal delay-3">
+          <div class="achievement-icon" aria-hidden="true">🎖️</div>
+          <div class="achievement-place">Certificate of Appreciation</div>
+          <div class="achievement-title">Quiz-o-Mania</div>
+          <div class="achievement-date">September 18, 2024 · Computer Engineers' Society</div>
+          <div class="achievement-desc">Recognized for active contribution to the Quiz-o-Mania event.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     CERTIFICATES SECTION
+     ============================================================ -->
+  <section id="certificates" class="section section--alt" aria-label="Certificates and credentials">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" aria-hidden="true">Certificates</div>
+        <h2 class="section-title">Mission <span>Clearances</span></h2>
+        <p class="section-sub">Click any certificate to view a full preview.</p>
+      </div>
+
+      <div class="certs-grid" role="list">
+
+        <!-- Cert 1: LIGO Workshop -->
+        <div class="cert-card reveal delay-1" role="listitem" tabindex="0"
+          data-caption="Gravitational Waves &amp; LIGO-India Workshop — SIT &amp; ICARD, Feb 2026" data-src=""
+          aria-label="View Gravitational Waves and LIGO-India certificate">
+          <div class="cert-thumb">
+            <img src="IMG_20260220_173932.jpg.jpeg" alt="Gravitational Waves and LIGO-India Workshop certificate"
+              loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">🎓</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Workshop · Physics</div>
+            <div class="cert-name">Gravitational Waves &amp; LIGO-India — Five-Day Workshop</div>
+            <div class="cert-issuer">SIT &amp; ICARD, UNB · Sponsored by IUCAA, Pune · Feb 2026</div>
+          </div>
+        </div>
+
+        <!-- Cert 2: Meta DB Coursera -->
+        <div class="cert-card reveal delay-2" role="listitem" tabindex="0"
+          data-caption="Introduction to Databases for Back-End Development — Meta / Coursera, June 2026"
+          data-src="Coursera C3PX9B2FD8Q6_page-0001(1).jpg" aria-label="View Meta Databases Coursera certificate">
+          <div class="cert-thumb">
+            <img src="Coursera C3PX9B2FD8Q6_page-0001(1).jpg"
+              alt="Meta Coursera — Introduction to Databases certificate" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">🎓</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Online Course · Meta</div>
+            <div class="cert-name">Introduction to Databases for Back-End Development</div>
+            <div class="cert-issuer">Meta · via Coursera · June 7, 2026 · <a
+                href="https://coursera.org/verify/C3PX9B2FD8Q6" target="_blank" rel="noopener noreferrer"
+                style="color:var(--accent-blue); font-size:0.75rem;" onclick="event.stopPropagation()">Verify ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cert 3: Yoga Quiz -->
+        <div class="cert-card reveal delay-3" role="listitem" tabindex="0"
+          data-caption="International Day of Yoga 2025 Quiz — Ministry of AYUSH &amp; MyGov"
+          data-src="certificate (2)(1).jpg" aria-label="View Yoga Quiz certificate">
+          <div class="cert-thumb">
+            <img src="certificate (2)(1).jpg" alt="International Day of Yoga 2025 Quiz certificate" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">🎓</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Government · MyGov</div>
+            <div class="cert-name">International Day of Yoga 2025 Quiz</div>
+            <div class="cert-issuer">Ministry of AYUSH &amp; MyGov</div>
+          </div>
+        </div>
+
+        <!-- Cert 4: Swachh Bharat -->
+        <div class="cert-card reveal delay-1" role="listitem" tabindex="0"
+          data-caption="Swachh Bharat Mission Grameen Phase-II Quiz — DDWS &amp; MyGov"
+          data-src="certificate (1)(1).jpg" aria-label="View Swachh Bharat certificate">
+          <div class="cert-thumb">
+            <img src="certificate (1)(1).jpg" alt="Swachh Bharat Mission Grameen Phase-II Quiz certificate"
+              loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">🎓</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Government · MyGov</div>
+            <div class="cert-name">Swachh Bharat Mission Grameen Phase-II Quiz</div>
+            <div class="cert-issuer">Dept. of Drinking Water &amp; Sanitation · MyGov</div>
+          </div>
+        </div>
+
+        <!-- Cert 5: Heatwave Quiz -->
+        <div class="cert-card reveal delay-2" role="listitem" tabindex="0"
+          data-caption="Beat the Heat: National Heatwave Awareness Quiz 2025 — NDMA &amp; MyGov"
+          data-src="certificate(1).jpg" aria-label="View Heatwave Awareness certificate">
+          <div class="cert-thumb">
+            <img src="certificate(1).jpg" alt="Beat the Heat Heatwave Awareness Quiz 2025 certificate" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">🎓</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Government · MyGov</div>
+            <div class="cert-name">Beat the Heat: National Heatwave Awareness Quiz 2025</div>
+            <div class="cert-issuer">NDMA &amp; MyGov</div>
+          </div>
+        </div>
+
+        <!-- Cert 6: CrunchLabs Space Selfie -->
+        <div class="cert-card reveal delay-3" role="listitem" tabindex="0"
+          data-caption="CrunchLabs Space Selfie Certificate" data-src="CrunchLabsSpaceSelfieCertificate(1).png"
+          aria-label="View CrunchLabs Space Selfie certificate">
+          <div class="cert-thumb">
+            <img src="CrunchLabsSpaceSelfieCertificate(1).png" alt="CrunchLabs Space Selfie certificate" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">🚀</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Special · Science</div>
+            <div class="cert-name">CrunchLabs Space Selfie</div>
+            <div class="cert-issuer">CrunchLabs</div>
+          </div>
+        </div>
+
+        <!-- Cert 7: SIH 2024 -->
+        <div class="cert-card reveal delay-1" role="listitem" tabindex="0"
+          data-caption="Smart India Hackathon 2024 — Internal Hackathon, Sep 12–13, 2024"
+          data-src="SIH 24 Final Approved Certificates_page-0001(1).jpg" aria-label="View SIH 2024 certificate">
+          <div class="cert-thumb">
+            <img src="SIH 24 Final Approved Certificates_page-0001(1).jpg" alt="Smart India Hackathon 2024 certificate"
+              loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">💡</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Hackathon · SIT</div>
+            <div class="cert-name">Smart India Hackathon 2024</div>
+            <div class="cert-issuer">Siliguri Institute of Technology · Sep 12–13, 2024</div>
+          </div>
+        </div>
+
+        <!-- Cert 8: SIT Ideathon 3.0 -->
+        <div class="cert-card reveal delay-2" role="listitem" tabindex="0"
+          data-caption="SIT Ideathon 3.0 — Leadership &amp; Achievement, Feb 7, 2025"
+          data-src="10_Aniket_page-0001(1).jpg" aria-label="View SIT Ideathon 3.0 certificate">
+          <div class="cert-thumb">
+            <img src="10_Aniket_page-0001(1).jpg" alt="SIT Ideathon 3.0 leadership certificate" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">🌟</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Leadership · SIT</div>
+            <div class="cert-name">SIT Ideathon 3.0 — Leadership &amp; Achievement</div>
+            <div class="cert-issuer">Siliguri Institute of Technology · Feb 7, 2025</div>
+          </div>
+        </div>
+
+        <!-- Cert 9: CODE BITES -->
+        <div class="cert-card reveal delay-3" role="listitem" tabindex="0"
+          data-caption="CODE BITES 4.0 — Certificate of Appreciation, Sep 25, 2024" data-src="9(1).png"
+          aria-label="View CODE BITES 4.0 certificate">
+          <div class="cert-thumb">
+            <img src="9(1).png" alt="CODE BITES 4.0 certificate" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">⭐</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Appreciation · CES</div>
+            <div class="cert-name">CODE BITES 4.0 — Certificate of Appreciation</div>
+            <div class="cert-issuer">Computer Engineers' Society, SIT · Sep 25, 2024</div>
+          </div>
+        </div>
+
+        <!-- Cert 10: Quiz-o-Mania -->
+        <div class="cert-card reveal delay-1" role="listitem" tabindex="0"
+          data-caption="Quiz-o-Mania — Certificate of Appreciation, Sep 18, 2024" data-src="23(1).png"
+          aria-label="View Quiz-o-Mania certificate">
+          <div class="cert-thumb">
+            <img src="23(1).png" alt="Quiz-o-Mania certificate" loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="cert-thumb-placeholder" style="display:none;" aria-hidden="true">
+              <span style="font-size:2rem">🎖️</span>
+              <span>Certificate Image</span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Appreciation · CES</div>
+            <div class="cert-name">Quiz-o-Mania — Certificate of Appreciation</div>
+            <div class="cert-issuer">Computer Engineers' Society, SIT · Sep 18, 2024</div>
+          </div>
+        </div>
+
+        <!-- Cert 11: SIH 2025 -->
+        <div class="cert-card reveal delay-2" role="listitem" tabindex="0"
+          data-caption="Smart India Hackathon 2025 — Internal Hackathon, Sep 17, 2025" data-src=""
+          aria-label="View SIH 2025 certificate">
+          <div class="cert-thumb">
+            <div class="cert-thumb-placeholder" aria-hidden="true">
+              <span style="font-size:2rem">🏆</span>
+              <span>SIH 2025 Certificate<br><span style="color:var(--accent-purple); font-size:0.7rem">PDF — extract
+                  your page</span></span>
+            </div>
+            <div class="cert-thumb-overlay" aria-hidden="true">
+              <span class="cert-view-btn">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                View
+              </span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-category">Hackathon · SIT</div>
+            <div class="cert-name">Smart India Hackathon 2025 — Internal Hackathon</div>
+            <div class="cert-issuer">Siliguri Institute of Technology · Sep 17, 2025</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     CREATIVE WORK SECTION
+     ============================================================ -->
+  <section id="creative" class="section" aria-label="Creative work portfolio">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" aria-hidden="true">Creative Work</div>
+        <h2 class="section-title">Art of the <span>Shinobi</span></h2>
+        <p class="section-sub">A collection of posters, graphics, social media content, and visual design work.</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Gallery filter">
+        <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+        <button class="filter-btn" data-filter="uiux" id="filter-uiux">UI/UX</button>
+        <button class="filter-btn" data-filter="graphic" id="filter-graphic">Graphic Design</button>
+        <button class="filter-btn" data-filter="poster" id="filter-poster">Posters</button>
+        <button class="filter-btn" data-filter="photo" id="filter-photo">Photography</button>
+        <button class="filter-btn" data-filter="editing" id="filter-editing">Photo Editing</button>
+        <button class="filter-btn" data-filter="social" id="filter-social">Social Media</button>
+      </div>
+
+      <!-- Gallery -->
+      <div class="gallery-grid" role="list" aria-label="Creative work gallery">
+        <!-- Coming soon placeholder items -->
+        <div class="gallery-item reveal delay-1" role="listitem" data-category="uiux" aria-label="TRUECRED UI Design">
+          <div class="gallery-placeholder">
+            <span style="font-size:2.5rem">🔐</span>
+            <span style="font-weight:600; color:var(--text-secondary)">TRUECRED UI Design</span>
+            <span style="font-size:0.7rem; color:var(--accent-purple)">Add screenshots to display</span>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true">
+            <div class="gallery-item-title">TRUECRED — UI Design</div>
+            <div class="gallery-item-cat">UI/UX</div>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal delay-2" role="listitem" data-category="uiux"
+          aria-label="Local Faves UI Design">
+          <div class="gallery-placeholder">
+            <span style="font-size:2.5rem">📍</span>
+            <span style="font-weight:600; color:var(--text-secondary)">Local Faves UI</span>
+            <span style="font-size:0.7rem; color:var(--accent-purple)">Add screenshots to display</span>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true">
+            <div class="gallery-item-title">Local Faves — UI Design</div>
+            <div class="gallery-item-cat">UI/UX</div>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal delay-3" role="listitem" data-category="poster" aria-label="Event Poster">
+          <div class="gallery-placeholder">
+            <span style="font-size:2.5rem">🎨</span>
+            <span style="font-weight:600; color:var(--text-secondary)">Event Poster</span>
+            <span style="font-size:0.7rem; color:var(--accent-blue)">SIT Ideathon Creative</span>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true">
+            <div class="gallery-item-title">Event Poster — SIT Ideathon</div>
+            <div class="gallery-item-cat">Poster</div>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal delay-1" role="listitem" data-category="social"
+          aria-label="Social Media Creative">
+          <div class="gallery-placeholder">
+            <span style="font-size:2.5rem">📱</span>
+            <span style="font-weight:600; color:var(--text-secondary)">Social Media Creative</span>
+            <span style="font-size:0.7rem; color:var(--accent-blue)">Digital Campaign Asset</span>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true">
+            <div class="gallery-item-title">Social Media Creative</div>
+            <div class="gallery-item-cat">Social Media</div>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal delay-2" role="listitem" data-category="graphic"
+          aria-label="Graphic Design work">
+          <div class="gallery-placeholder">
+            <span style="font-size:2.5rem">✏️</span>
+            <span style="font-weight:600; color:var(--text-secondary)">Graphic Design</span>
+            <span style="font-size:0.7rem; color:var(--accent-purple)">CES SIT Creative</span>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true">
+            <div class="gallery-item-title">Graphic Design — CES</div>
+            <div class="gallery-item-cat">Graphic Design</div>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal delay-3" role="listitem" data-category="photo" aria-label="Photography">
+          <div class="gallery-placeholder">
+            <span style="font-size:2.5rem">📷</span>
+            <span style="font-weight:600; color:var(--text-secondary)">Photography</span>
+            <span style="font-size:0.7rem; color:var(--accent-warm)">Add your photos</span>
+          </div>
+          <div class="gallery-overlay" aria-hidden="true">
+            <div class="gallery-item-title">Photography</div>
+            <div class="gallery-item-cat">Photography</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Coming soon note -->
+      <div style="text-align:center; margin-top:40px;" class="reveal">
+        <p style="color:var(--text-muted); font-family:var(--font-sub); font-size:0.88rem; margin-bottom:12px;">
+          More creative work will be added soon — drop your design assets into the portfolio folder.
+        </p>
+        <span class="gallery-coming-soon">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          90+ assets created · Gallery expanding soon
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     CONTACT SECTION
+     ============================================================ -->
+  <section id="contact" class="section section--alt" aria-label="Contact information">
+    <div class="container">
+      <div class="contact-wrap">
+
+        <!-- Left: headline + links -->
+        <div class="reveal-left">
+          <div class="section-label" aria-hidden="true">Contact</div>
+          <h2 class="contact-headline">
+            Send a <span>Den Den Mushi</span>
+          </h2>
+          <p class="contact-sub">
+            Interested in design collaboration, creative projects, or technology?
+            I'd love to connect and embark on this mission together.
+          </p>
+
+          <div class="contact-links" role="list">
+
+            <!-- Email -->
+            <a href="mailto:aniketcpt@gmail.com" class="contact-link-card" role="listitem"
+              aria-label="Email Aniket Kumar at aniketcpt@gmail.com">
+              <div class="contact-link-icon" aria-hidden="true">✉️</div>
+              <div class="contact-link-info">
+                <div class="contact-link-type">Email</div>
+                <div class="contact-link-value">aniketcpt@gmail.com</div>
+              </div>
+              <svg class="contact-link-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/aniket-kumar-7bb50b318" target="_blank" rel="noopener noreferrer"
+              class="contact-link-card" role="listitem" aria-label="Aniket Kumar's LinkedIn profile (opens in new tab)">
+              <div class="contact-link-icon" style="background:rgba(10,102,194,0.15);" aria-hidden="true">💼</div>
+              <div class="contact-link-info">
+                <div class="contact-link-type">LinkedIn</div>
+                <div class="contact-link-value">aniket-kumar-7bb50b318</div>
+              </div>
+              <svg class="contact-link-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+
+            <!-- Phone -->
+            <a href="tel:+918409046130" class="contact-link-card" role="listitem"
+              aria-label="Call Aniket Kumar at +91 8409046130">
+              <div class="contact-link-icon" style="background:rgba(167,139,250,0.12);" aria-hidden="true">📞</div>
+              <div class="contact-link-info">
+                <div class="contact-link-type">Phone</div>
+                <div class="contact-link-value">+91 8409046130</div>
+              </div>
+              <svg class="contact-link-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+
+            <!-- GitHub placeholder -->
+            <div class="contact-link-card" style="opacity:0.45; cursor:default;" role="listitem"
+              aria-label="GitHub URL coming soon">
+              <div class="contact-link-icon" style="background:rgba(79,142,247,0.08);" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color:var(--text-muted)">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+                </svg>
+              </div>
+              <div class="contact-link-info">
+                <div class="contact-link-type">GitHub</div>
+                <div class="contact-link-value" style="color:var(--text-muted)">URL to be added</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: quote + visual -->
+        <div class="contact-visual reveal-right">
+          <div class="contact-quote">
+            <blockquote>
+              "Designing visual experiences with a technical mindset — that's my approach to every project I work on."
+            </blockquote>
+            <div class="contact-quote-author">— Aniket Kumar</div>
+          </div>
+
+          <!-- Stats visual -->
+          <div class="contact-stat-grid">
+            <div class="contact-stat-item">
+              <div class="contact-stat-num">2×</div>
+              <div class="contact-stat-label">🏆 Competition Victor</div>
+            </div>
+            <div class="contact-stat-item">
+              <div class="contact-stat-num">90+</div>
+              <div class="contact-stat-label">⚡ Design Jutsu</div>
+            </div>
+            <div class="contact-stat-item">
+              <div class="contact-stat-num">3+</div>
+              <div class="contact-stat-label">🌀 Years Training</div>
+            </div>
+            <div class="contact-stat-item">
+              <div class="contact-stat-num">10+</div>
+              <div class="contact-stat-label">🛠️ Tools Mastered</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     FOOTER
+     ============================================================ -->
+  <footer role="contentinfo">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-name">ANIKET <span>KUMAR</span></div>
+        <div class="footer-role">Ninja Designer ・ CS Undergraduate</div>
+      </div>
+
+      <div class="footer-links" role="list">
+        <a href="mailto:aniketcpt@gmail.com" class="footer-link" role="listitem" aria-label="Email Aniket">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          aniketcpt@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/aniket-kumar-7bb50b318" target="_blank" rel="noopener noreferrer"
+          class="footer-link" role="listitem" aria-label="LinkedIn profile (opens in new tab)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+          LinkedIn
+        </a>
+        <!-- GitHub: add URL when available -->
+        <span class="footer-link" style="opacity:0.4; cursor:default;" aria-label="GitHub coming soon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+          </svg>
+          GitHub (coming soon)
+        </span>
+      </div>
+
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <p class="footer-copy">
+        &copy; <span id="footer-year"></span> Aniket Kumar. Built with passion for design.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+      aria-hidden="true">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate preview">
+    <div class="lightbox-inner">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Close certificate preview">✕</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="" />
+      <div id="lightbox-placeholder" class="lightbox-placeholder" style="display:none;" aria-live="polite">
+        <span style="font-size:3rem">📄</span>
+        <span class="ph-caption" style="font-size:1rem; font-weight:600;"></span>
+        <span>Certificate image not yet added.<br>Drop the file into the portfolio folder to display it here.</span>
+      </div>
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+
+  <script>
+    // Footer year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js" defer></script>
+
+</body>
+
+</html>
