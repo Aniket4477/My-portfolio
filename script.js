@@ -110,7 +110,7 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => 
 const typeEl = document.getElementById('typewriter');
 if (typeEl) {
   const texts = [
-    'Aspiring UI/UX Designer',
+    'Aspiring Full Stack Developer',
     'Graphic Design Ninja',
     'Visual Storyteller',
     'CS Undergraduate',
