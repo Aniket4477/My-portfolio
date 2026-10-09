@@ -200,9 +200,9 @@ ul, ol { list-style: none; }
 .hero-stat { position: absolute; background: rgba(6,6,14,0.92); backdrop-filter: blur(12px); border: 1px solid var(--border-strong); padding: 12px 20px; font-family: var(--font-sub); animation: float 6s ease-in-out infinite; clip-path: polygon(0% 0%, calc(100% - 10px) 0%, 100% 50%, calc(100% - 10px) 100%, 0% 100%); }
 .hero-stat-num { font-family: var(--font-display); font-size: 1.8rem; color: var(--chakra-orange); line-height: 1; text-shadow: 0 0 20px rgba(255,107,0,0.5); }
 .hero-stat-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; letter-spacing: 0.05em; text-transform: uppercase; }
-.hero-stat-1 { bottom: 10%; right: -5%; animation-delay: -2s; }
+.hero-stat-1 { bottom: 2%; right: 2%; animation-delay: -2s; }
 .hero-stat-2 { top: 15%; left: -8%; animation-delay: -4s; }
-.hero-stat-3 { top: 55%; right: -10%; animation-delay: 0s; }
+.hero-stat-3 { top: 38%; right: -10%; animation-delay: 0s; }
 .hero-scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; font-family: var(--font-sub); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
 .hero-scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--chakra-orange), transparent); animation: scroll-line 2s ease-in-out infinite; }
 @keyframes scroll-line { 0%, 100% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(0.5); opacity: 0.4; } }
