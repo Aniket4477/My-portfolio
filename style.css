@@ -774,11 +774,11 @@ footer .footer-inner {
 .gallery-item.writing-card {
   aspect-ratio: auto !important;
   min-height: 330px;
-  background: linear-gradient(145deg, rgba(20, 15, 30, 0.96), rgba(8, 7, 16, 0.98)) !important;
-  border: 1px solid rgba(255, 107, 0, 0.35) !important;
+  background: linear-gradient(145deg, rgba(20, 15, 30, 0.96), rgba(8, 7, 16, 0.98));
+  border: 1px solid rgba(255, 107, 0, 0.35);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65), inset 0 0 20px rgba(255, 107, 0, 0.04);
   padding: 22px 20px;
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
@@ -788,8 +788,12 @@ footer .footer-inner {
   cursor: default;
 }
 
+.gallery-item.writing-card[style*="display: none"] {
+  display: none !important;
+}
+
 .gallery-item.writing-card:hover {
-  border-color: var(--chakra-orange) !important;
+  border-color: var(--chakra-orange);
   transform: translateY(-4px);
   box-shadow: 0 14px 40px rgba(255, 107, 0, 0.25), inset 0 0 30px rgba(255, 107, 0, 0.08);
 }
@@ -808,7 +812,7 @@ footer .footer-inner {
   align-items: center;
   gap: 6px;
   font-family: var(--font-sub);
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -827,14 +831,14 @@ footer .footer-inner {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--font-body);
   font-size: 0.88rem;
   line-height: 1.65;
   color: #ededf5;
   font-style: italic;
   text-align: left;
-  padding: 4px 0;
+  padding: 6px 0;
 }
 
 .writing-card-body .poem-verse {
@@ -843,37 +847,23 @@ footer .footer-inner {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
-.writing-card-body .poem-divider {
-  text-align: center;
-  color: var(--chakra-gold);
-  font-size: 0.65rem;
-  letter-spacing: 0.35em;
-  opacity: 0.7;
-  margin: 2px 0;
-}
-
 .writing-card-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 10px;
   margin-top: 12px;
   font-family: var(--font-sub);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
 }
 
 .writing-card-author {
-  color: var(--text-secondary);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-
-.writing-card-tag {
   color: var(--chakra-orange);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 107, 0, 0.4);
 }
 
 /* Anime contact stat grid */

@@ -269,7 +269,15 @@ function applyGalleryFilter(filter) {
   document.querySelectorAll('.gallery-item').forEach(item => {
     const cat = item.dataset.category || '';
     const show = filter === 'all' || cat.split(' ').includes(filter);
-    item.style.display = show ? 'block' : 'none';
+    if (!show) {
+      item.style.setProperty('display', 'none', 'important');
+    } else {
+      if (item.classList.contains('writing-card')) {
+        item.style.setProperty('display', 'flex', 'important');
+      } else {
+        item.style.removeProperty('display');
+      }
+    }
   });
   updatePhotoViewAllLink();
 }
