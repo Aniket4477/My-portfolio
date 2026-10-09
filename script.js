@@ -312,15 +312,57 @@ function openWritingModal(card) {
   }
   
   if (writingModalBody && body) {
-    writingModalBody.innerHTML = body.innerHTML;
+    writingModalBody.innerHTML = '';
     
-    // Check if writing is long: display half left side, half right side
-    const brCount = (body.innerHTML.match(/<br\s*\/?>/gi) || []).length;
-    const verseCount = body.querySelectorAll('.poem-verse').length;
-    const totalLines = brCount + verseCount;
-    const isLong = totalLines >= 6 || body.innerHTML.length > 250;
+    // Open modal first so layout dimensions are active
+    writingModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
     
-    writingModalBody.classList.toggle('multi-column', isLong);
+    // Build 2-column container
+    const colsWrapper = document.createElement('div');
+    colsWrapper.className = 'writing-modal-cols';
+    
+    const colLeft = document.createElement('div');
+    colLeft.className = 'writing-col-left';
+    
+    const colDivider = document.createElement('div');
+    colDivider.className = 'writing-col-divider';
+    
+    const colRight = document.createElement('div');
+    colRight.className = 'writing-col-right';
+    
+    colsWrapper.appendChild(colLeft);
+    colsWrapper.appendChild(colDivider);
+    colsWrapper.appendChild(colRight);
+    writingModalBody.appendChild(colsWrapper);
+    
+    // Clone all verse elements
+    const verses = Array.from(body.querySelectorAll('.poem-verse')).map(v => v.cloneNode(true));
+    
+    // Available height before spilling over to the right side
+    const maxLeftHeight = Math.max(280, Math.min(window.innerHeight * 0.42, 380));
+    
+    let spillToRight = false;
+    
+    verses.forEach((verse, index) => {
+      if (!spillToRight) {
+        colLeft.appendChild(verse);
+        // If adding this verse pushes left column past maxLeftHeight,
+        // and we already have at least 1 verse in left column, move this and future verses to right
+        if (colLeft.offsetHeight > maxLeftHeight && index > 0) {
+          colLeft.removeChild(verse);
+          colRight.appendChild(verse);
+          spillToRight = true;
+        }
+      } else {
+        colRight.appendChild(verse);
+      }
+    });
+    
+    // Enable two-column layout only if right column has content
+    const hasRight = colRight.children.length > 0;
+    colsWrapper.classList.toggle('has-two-columns', hasRight);
+    return;
   }
   
   writingModal.classList.add('open');
