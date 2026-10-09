@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photography Portfolio by Aniket Kumar - Full gallery of visual captures, street photography, nature, and creative compositions." />
+  <meta name="author" content="Aniket Kumar" />
+  <title>Photography - Aniket Kumar | Visual Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=Bebas+Neue&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg-primary,#0a0a0f);color:var(--text-primary,#f0f0f5);font-family:var(--font-sub,'Rajdhani',sans-serif);min-height:100vh;overflow-x:hidden}
+    #ph-scroll-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--chakra-orange,#ff6b00),var(--chakra-gold,#ffb800));z-index:9999;transition:width .1s linear}
+    .ph-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(10,10,15,.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,107,0,.15)}
+    .ph-nav-back{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--chakra-orange,#ff6b00);font-family:var(--font-sub,'Rajdhani',sans-serif);font-weight:600;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s}
+    .ph-nav-back:hover{opacity:.7}
+    .ph-nav-title{font-family:var(--font-primary,'Cinzel',serif);font-size:1.1rem;font-weight:700;letter-spacing:.2em;background:linear-gradient(135deg,var(--chakra-orange,#ff6b00),var(--chakra-gold,#ffb800));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center}
+    .ph-nav-count{font-size:.78rem;color:var(--text-muted,#888);letter-spacing:.1em;font-family:var(--font-sub,'Rajdhani',sans-serif)}
+    .ph-hero{text-align:center;padding:64px 24px 48px;position:relative;overflow:hidden}
+    .ph-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,107,0,.08) 0%,transparent 70%);pointer-events:none}
+    .ph-hero-label{font-family:var(--font-sub,'Rajdhani',sans-serif);font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--chakra-orange,#ff6b00);margin-bottom:14px;display:block}
+    .ph-hero h1{font-family:var(--font-primary,'Cinzel',serif);font-size:clamp(2.4rem,6vw,5rem);font-weight:800;letter-spacing:.08em;line-height:1;margin-bottom:16px}
+    .ph-hero h1 span{background:linear-gradient(135deg,var(--chakra-orange,#ff6b00),var(--chakra-gold,#ffb800));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .ph-hero-sub{font-size:1rem;color:var(--text-secondary,#aaa);max-width:520px;margin:0 auto;line-height:1.7;font-family:var(--font-sub,'Rajdhani',sans-serif)}
+    .ph-controls{display:flex;align-items:center;justify-content:center;gap:16px;padding:0 24px 40px;flex-wrap:wrap}
+    .ph-search-wrap{position:relative;flex:0 1 340px}
+    .ph-search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-muted,#888);pointer-events:none}
+    .ph-search{width:100%;padding:10px 14px 10px 40px;background:rgba(255,255,255,.04);border:1px solid rgba(255,107,0,.2);border-radius:8px;color:var(--text-primary,#f0f0f5);font-family:var(--font-sub,'Rajdhani',sans-serif);font-size:.88rem;letter-spacing:.06em;outline:none;transition:border-color .2s}
+    .ph-search:focus{border-color:var(--chakra-orange,#ff6b00)}
+    .ph-search::placeholder{color:var(--text-muted,#888)}
+    .ph-layout-btns{display:flex;gap:8px}
+    .ph-layout-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,107,0,.2);border-radius:6px;color:var(--text-muted,#888);cursor:pointer;transition:all .2s}
+    .ph-layout-btn.active,.ph-layout-btn:hover{background:rgba(255,107,0,.12);border-color:var(--chakra-orange,#ff6b00);color:var(--chakra-orange,#ff6b00)}
+    .ph-info-bar{display:flex;align-items:center;justify-content:space-between;padding:0 40px 20px;font-size:.78rem;color:var(--text-muted,#888);font-family:var(--font-sub,'Rajdhani',sans-serif);letter-spacing:.08em}
+    .ph-info-bar span b{color:var(--chakra-orange,#ff6b00)}
+    .ph-grid-container{padding:0 24px 80px}
+    .ph-grid{columns:4;column-gap:12px}
+    @media(max-width:1200px){.ph-grid{columns:3}}
+    @media(max-width:768px){.ph-grid{columns:2}}
+    @media(max-width:480px){.ph-grid{columns:1}}
+    .ph-grid.grid-2{columns:2}
+    .ph-grid.list-view{columns:1}
+    .ph-card{break-inside:avoid;position:relative;margin-bottom:12px;border-radius:10px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:transform .3s ease,box-shadow .3s ease;animation:phFadeUp .5s ease both}
+    .ph-card:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 12px 40px rgba(255,107,0,.2);border-color:rgba(255,107,0,.3);z-index:2}
+    .ph-card img{width:100%;height:auto;display:block;transition:transform .4s ease;background:rgba(255,255,255,.02)}
+    .ph-card:hover img{transform:scale(1.04)}
+    .ph-card-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(0,0,0,.8) 0%,transparent 100%);padding:32px 14px 14px;opacity:0;transition:opacity .3s ease;display:flex;align-items:flex-end;justify-content:space-between}
+    .ph-card:hover .ph-card-overlay{opacity:1}
+    .ph-card-num{font-family:var(--font-sub,'Rajdhani',sans-serif);font-size:.7rem;letter-spacing:.15em;color:var(--chakra-orange,#ff6b00)}
+    .ph-card-view-icon{width:32px;height:32px;background:rgba(255,107,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+    .ph-grid.list-view .ph-card{display:flex;align-items:center;gap:16px;padding:8px}
+    .ph-grid.list-view .ph-card img{width:120px;height:80px;object-fit:cover;border-radius:6px;flex-shrink:0}
+    .ph-grid.list-view .ph-card-overlay{position:static;opacity:1;background:none;padding:0;flex-direction:column;align-items:flex-start;gap:4px;flex:1}
+    .ph-grid.list-view .ph-card-view-icon{display:none}
+    .ph-no-results{text-align:center;padding:80px 24px;color:var(--text-muted,#888);font-family:var(--font-sub,'Rajdhani',sans-serif);display:none}
+    .ph-lightbox{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.95);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s ease}
+    .ph-lightbox.open{opacity:1;pointer-events:all}
+    .ph-lb-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;align-items:center;justify-content:center}
+    .ph-lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,.8);display:block}
+    .ph-lb-close{position:fixed;top:20px;right:24px;width:42px;height:42px;background:rgba(255,107,0,.9);border:none;border-radius:50%;color:#fff;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:background .2s;z-index:10001}
+    .ph-lb-close:hover{background:var(--chakra-orange,#ff6b00)}
+    .ph-lb-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,107,0,.15);border:1px solid rgba(255,107,0,.3);border-radius:50%;width:48px;height:48px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10001}
+    .ph-lb-nav:hover{background:rgba(255,107,0,.4)}
+    .ph-lb-prev{left:16px}
+    .ph-lb-next{right:16px}
+    .ph-lb-counter{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);font-family:var(--font-sub,'Rajdhani',sans-serif);font-size:.8rem;letter-spacing:.15em;color:rgba(255,255,255,.6);z-index:10001;white-space:nowrap}
+    .ph-footer{text-align:center;padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);font-family:var(--font-sub,'Rajdhani',sans-serif);font-size:.78rem;color:var(--text-muted,#888);letter-spacing:.1em}
+    .ph-footer a{color:var(--chakra-orange,#ff6b00);text-decoration:none}
+    .ph-footer a:hover{text-decoration:underline}
+    @keyframes phFadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <div id="ph-scroll-bar"></div>
+
+  <div class="ph-lightbox" id="ph-lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+    <button class="ph-lb-close" id="ph-lb-close" aria-label="Close lightbox">&times;</button>
+    <button class="ph-lb-nav ph-lb-prev" id="ph-lb-prev" aria-label="Previous photo">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="ph-lb-inner">
+      <img class="ph-lb-img" id="ph-lb-img" src="" alt="" />
+    </div>
+    <button class="ph-lb-nav ph-lb-next" id="ph-lb-next" aria-label="Next photo">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="ph-lb-counter" id="ph-lb-counter"></div>
+  </div>
+
+  <nav class="ph-nav">
+    <a href="index.html#creative" class="ph-nav-back" aria-label="Back to portfolio">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <polyline points="19 12 5 12"/><polyline points="12 5 5 12 12 19"/>
+      </svg>
+      Back to Portfolio
+    </a>
+    <div class="ph-nav-title">PHOTOGRAPHY</div>
+    <div class="ph-nav-count" id="ph-nav-count">Loading...</div>
+  </nav>
+
+  <header class="ph-hero">
+    <span class="ph-hero-label">Visual Gallery</span>
+    <h1>Through the <span>Lens</span></h1>
+    <p class="ph-hero-sub">A complete collection of photographs &mdash; street captures, golden hour frames, nature, and creative visual art by Aniket Kumar.</p>
+  </header>
+
+  <div class="ph-controls">
+    <div class="ph-search-wrap">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input class="ph-search" id="ph-search" type="search" placeholder="Search photos..." aria-label="Search photos" />
+    </div>
+    <div class="ph-layout-btns" role="group" aria-label="Layout options">
+      <button class="ph-layout-btn active" id="btn-grid4" title="4-column grid" aria-pressed="true">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/>
+          <rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/>
+        </svg>
+      </button>
+      <button class="ph-layout-btn" id="btn-grid2" title="2-column grid" aria-pressed="false">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <rect x="1" y="1" width="6" height="14" rx="1"/><rect x="9" y="1" width="6" height="14" rx="1"/>
+        </svg>
+      </button>
+      <button class="ph-layout-btn" id="btn-list" title="List view" aria-pressed="false">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <rect x="1" y="2" width="14" height="3" rx="1"/><rect x="1" y="7" width="14" height="3" rx="1"/>
+          <rect x="1" y="12" width="14" height="3" rx="1"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="ph-info-bar">
+    <span>Showing <b id="ph-visible-count">0</b> of <b id="ph-total-count">0</b> photos</span>
+    <span>Photography &middot; Aniket Kumar</span>
+  </div>
+
+  <main class="ph-grid-container">
+    <div class="ph-grid" id="ph-grid" role="list" aria-label="Photography gallery"></div>
+    <div class="ph-no-results" id="ph-no-results">
+      <p>No photos match your search.</p>
+    </div>
+  </main>
+
+  <footer class="ph-footer">
+    <a href="index.html">&larr; Back to Portfolio</a> &nbsp;&middot;&nbsp; Photography by Aniket Kumar &nbsp;&middot;&nbsp; All rights reserved
+  </footer>
+
+  <script>
+    const ALL_PHOTOS = [
+      {file:"Layer 0.png",caption:"Visual Art & Framing I"},
+      {file:"Layer 2.png",caption:"Visual Art & Framing II"},
+      {file:"Layer 4.png",caption:"Visual Art & Framing III"},
+      {file:"XXESDCTFVNHJUM.png",caption:"Creative Visual Composition"},
+      {file:"IMG20260730110502 (1).jpg",caption:"Street & Candid Moments I"},
+      {file:"IMG20260615174148 (1).jpg",caption:"Golden Hour Capture"},
+      {file:"1773342056038.jpg",caption:"Atmospheric Perspective"},
+      {file:"DFXCGVBHJN.png",caption:"Creative Digital Composition"},
+      {file:"ESXDFCGV.png",caption:"Abstract Visual Tone"},
+      {file:"IMG-20251225-WA0025.jpg",caption:"Holiday Moments & Life"},
+      {file:"IMG-20251225-WA0011.jpg",caption:"Candid Street Capture"},
+      {file:"IMG20251116152448.jpg",caption:"Light & Shadow Framing"},
+      {file:"IMG20251211102226.jpg",caption:"Urban Architecture & Life"},
+      {file:"IMG20251216174902.jpg",caption:"Dusk & Evening Tones"},
+      {file:"IMG20260206133230 (1).jpg",caption:"Nature & Greenery Focus"},
+      {file:"IMG20260122125112.jpg",caption:"Winter Daylight Capture"},
+      {file:"IMG20260211142327.jpg",caption:"Sunlit Perspective"},
+      {file:"IMG20260206143128 (1).jpg",caption:"Color Contrast & Mood"},
+      {file:"IMG20260610121518.jpg",caption:"Summer Horizon Tones"},
+      {file:"IMG20260617050050.jpg",caption:"Dawn Atmosphere & Skyline"},
+      {file:"20250116_125541 - Copy.jpg",caption:"Captured Moment"},
+      {file:"20250605_160235.jpg",caption:"Summer Day Capture I"},
+      {file:"20250605_161306.jpg",caption:"Summer Day Capture II"},
+      {file:"20250605_161616.jpg",caption:"Summer Day Capture III"},
+      {file:"20250605_162439.jpg",caption:"Summer Day Capture IV"},
+      {file:"20250605_163536.jpg",caption:"Summer Day Capture V"},
+      {file:"ESRCDGTFVNHJ.png",caption:"Creative Composition II"},
+      {file:"IMG-20251225-WA0010.jpg",caption:"Holiday Frame"},
+      {file:"IMG-20260906-WA0024.jpg",caption:"September Capture"},
+      {file:"IMG20240726152202[1] copy.jpg",caption:"Street Frame 2024"},
+      {file:"IMG20250116135259.jpg",caption:"January Light"},
+      {file:"IMG20250929165228.jpg",caption:"Autumn Frame"},
+      {file:"IMG20251001222238.jpg",caption:"Night Exposure I"},
+      {file:"IMG20251010160144.jpg",caption:"October Capture I"},
+      {file:"IMG20251010170025.jpg",caption:"October Capture II"},
+      {file:"IMG20251010171742.jpg",caption:"October Capture III"},
+      {file:"IMG20251011131005.jpg",caption:"Morning Frame"},
+      {file:"IMG20251012104345.jpg",caption:"Midday Scene I"},
+      {file:"IMG20251012134818.jpg",caption:"Midday Scene II"},
+      {file:"IMG20251012140310.jpg",caption:"Midday Scene III"},
+      {file:"IMG20251012174934.jpg",caption:"Evening Frame I"},
+      {file:"IMG20251020112444_20260111022528.jpg",caption:"Urban Texture I"},
+      {file:"IMG20251022162137_20260111022903.jpg",caption:"Street Life I"},
+      {file:"IMG20251022162157_20260111022902.jpg",caption:"Street Life II"},
+      {file:"IMG20251025162854.jpg",caption:"Afternoon Light"},
+      {file:"IMG20251107133723.jpg",caption:"November Frame"},
+      {file:"IMG20251211102416.jpg",caption:"December Morning I"},
+      {file:"IMG20251211225425.jpg",caption:"December Night I"},
+      {file:"IMG20251211225551.jpg",caption:"December Night II"},
+      {file:"IMG20251219150203.jpg",caption:"Winter Capture I"},
+      {file:"IMG20251219150214.jpg",caption:"Winter Capture II"},
+      {file:"IMG20251223214826.jpg",caption:"Pre-Christmas Frame"},
+      {file:"IMG20251225163947_01.jpg",caption:"Christmas Day I"},
+      {file:"IMG20251225173144.jpg",caption:"Christmas Day II"},
+      {file:"IMG20260101092017.jpg",caption:"New Year Morning I"},
+      {file:"IMG20260101095212_01.jpg",caption:"New Year Morning II"},
+      {file:"IMG20260101100619.jpg",caption:"New Year Morning III"},
+      {file:"IMG20260102172007.jpg",caption:"January Evening"},
+      {file:"IMG20260121153927.jpg",caption:"Late January Frame I"},
+      {file:"IMG20260121153939 (1).jpg",caption:"Late January Frame II"},
+      {file:"IMG20260121153952.jpg",caption:"Late January Frame III"},
+      {file:"IMG20260202113306.jpg",caption:"February Morning"},
+      {file:"IMG20260305102018 (1).jpg",caption:"March Daylight"},
+      {file:"IMG20260602093520.jpg",caption:"June Morning Capture"},
+      {file:"IMG20260610102852 (1) (1) (1) (1).jpg",caption:"June Afternoon I"},
+      {file:"IMG20260610102940.jpg",caption:"June Afternoon II"},
+      {file:"IMG20260610130739.jpg",caption:"June Noon Frame I"},
+      {file:"IMG20260610130922.jpg",caption:"June Noon Frame II"},
+      {file:"IMG20260614215459.jpg",caption:"Summer Night Frame"},
+      {file:"IMG20260616213615.jpg",caption:"June Evening Glow"},
+      {file:"IMG20260617050037.jpg",caption:"Dawn Frame I"},
+      {file:"IMG20260730110451.jpg",caption:"July Morning I"},
+      {file:"IMG20260730110502.jpg",caption:"July Morning II"},
+      {file:"IMG20260730110620.jpg",caption:"July Morning III"},
+      {file:"IMG20260730110655 (1).jpg",caption:"July Morning IV"},
+      {file:"IMG20260730110822.jpg",caption:"July Morning V"},
+      {file:"IMG20260730133604.jpg",caption:"July Afternoon I"},
+      {file:"IMG20260730133615.jpg",caption:"July Afternoon II"},
+      {file:"IMG20260730133618.jpg",caption:"July Afternoon III"},
+      {file:"IMG20260730133623.jpg",caption:"July Afternoon IV"},
+      {file:"IMG20260730133625.jpg",caption:"July Afternoon V"},
+      {file:"IMG20260730133636.jpg",caption:"July Afternoon VI"},
+      {file:"IMG20260802150827.jpg",caption:"August Afternoon"},
+      {file:"IMG20260806114231.jpg",caption:"August Frame I"},
+      {file:"IMG20260806114245.jpg",caption:"August Frame II"},
+      {file:"IMG20260806114339.jpg",caption:"August Frame III"},
+      {file:"IMG20260806114532.jpg",caption:"August Frame IV"},
+      {file:"IMG20260806114539.jpg",caption:"August Frame V"},
+      {file:"IMG20260806121944 (1).jpg",caption:"August Noon I"},
+      {file:"IMG20260806121944.jpg",caption:"August Noon II"},
+      {file:"IMG20260806122021.jpg",caption:"August Noon III"},
+      {file:"IMG20260806122146.jpg",caption:"August Noon IV"},
+      {file:"IMG20260806122319.jpg",caption:"August Noon V"},
+      {file:"IMG20260806122347.jpg",caption:"August Noon VI"},
+      {file:"IMG20260806122556.jpg",caption:"August Noon VII"},
+      {file:"IMG20260806122857.jpg",caption:"August Noon VIII"},
+      {file:"IMG20260806122944.jpg",caption:"August Noon IX"},
+      {file:"IMG20260806122955.jpg",caption:"August Noon X"},
+      {file:"IMG20260819062254.jpg",caption:"August Dawn"},
+      {file:"IMG20260820055619.jpg",caption:"August Sunrise I"},
+      {file:"IMG20260820055919.jpg",caption:"August Sunrise II"},
+      {file:"IMG20260820055920.jpg",caption:"August Sunrise III"},
+      {file:"IMG20260820060226.jpg",caption:"August Sunrise IV"},
+      {file:"IMG20260820060654.jpg",caption:"August Morning I"},
+      {file:"IMG20260820060830 (1).jpg",caption:"August Morning II"},
+      {file:"IMG20260820060830 (2).jpg",caption:"August Morning III"},
+      {file:"IMG20260820060830 (4).jpg",caption:"August Morning IV"},
+      {file:"IMG20260820063909.jpg",caption:"August Morning V"},
+      {file:"IMG20260820065118.jpg",caption:"August Morning VI"},
+      {file:"IMG20260820065307.jpg",caption:"August Morning VII"},
+      {file:"IMG20261005163427.jpg",caption:"October Frame I"},
+      {file:"IMG20261005163452.jpg",caption:"October Frame II"},
+      {file:"IMG20261005164450.jpg",caption:"October Frame III"},
+      {file:"IMG20261005165250.jpg",caption:"October Frame IV"},
+      {file:"IMG_0174.jpg",caption:"Classic Frame"},
+      {file:"IMG_20251011_010023.jpg",caption:"Night Exposure II"},
+      {file:"IMG_20251014_170444.jpg",caption:"October Dusk I"},
+      {file:"IMG_20251014_170635.jpg",caption:"October Dusk II"},
+      {file:"IMG_20251014_171359.jpg",caption:"October Dusk III"},
+      {file:"IMG_20251130_233430.jpg",caption:"November Night"},
+      {file:"IMG_20251205_192717.jpg",caption:"December Evening"},
+      {file:"IMG_20251212_000930.jpg",caption:"December Midnight"},
+      {file:"IMG_20251226_214634.jpg",caption:"Post-Christmas Frame"},
+      {file:"IMG_20260105_063448088.jpg",caption:"January Dawn"},
+      {file:"IMG_20260313_023536_777.jpg",caption:"March Night I"},
+      {file:"IMG_20260313_023604_440.jpg",caption:"March Night II"},
+      {file:"IMG_20260313_234129.jpg",caption:"March Night III"},
+      {file:"IMG_20260731_080415.jpg",caption:"July Morning Glow"},
+      {file:"Layer 7.png",caption:"Visual Art Layer IV"},
+      {file:"RZXCTFBHJ.png",caption:"Creative Composition III"},
+      {file:"erexhcvygbhnjm.png",caption:"Abstract Visual II"},
+      {file:"zxcvgbn.png",caption:"Abstract Visual III"},
+      {file:"zxfcgbhj.png",caption:"Abstract Visual IV"}
+    ];
+
+    const SKIP=['.heic','.heif'];
+    const photos=ALL_PHOTOS.filter(p=>!SKIP.some(e=>p.file.toLowerCase().endsWith(e)));
+    const total=photos.length;
+    let currentIndex=0,lbList=[],filteredPhotos=[...photos];
+
+    const grid=document.getElementById('ph-grid');
+    const searchInp=document.getElementById('ph-search');
+    const lightbox=document.getElementById('ph-lightbox');
+    const lbImg=document.getElementById('ph-lb-img');
+    const lbClose=document.getElementById('ph-lb-close');
+    const lbPrev=document.getElementById('ph-lb-prev');
+    const lbNext=document.getElementById('ph-lb-next');
+    const lbCounter=document.getElementById('ph-lb-counter');
+    const noResults=document.getElementById('ph-no-results');
+    const visCount=document.getElementById('ph-visible-count');
+    const totalCount=document.getElementById('ph-total-count');
+    const navCount=document.getElementById('ph-nav-count');
+    const scrollBar=document.getElementById('ph-scroll-bar');
+
+    totalCount.textContent=total;
+    navCount.textContent=total+' photos';
+
+    function buildGrid(list){
+      grid.innerHTML='';
+      noResults.style.display=list.length===0?'block':'none';
+      visCount.textContent=list.length;
+      list.forEach((photo,idx)=>{
+        const card=document.createElement('div');
+        card.className='ph-card';
+        card.setAttribute('role','listitem');
+        card.setAttribute('tabindex','0');
+        card.setAttribute('aria-label','View: '+photo.caption);
+        card.style.animationDelay=(idx<20?idx*0.025:0.5)+'s';
+        card.innerHTML=`
+          <img src="Photography/${photo.file}" alt="${photo.caption} - Photography by Aniket Kumar" loading="lazy"
+            onerror="this.parentElement.style.display='none'" />
+          <div class="ph-card-overlay">
+            <span class="ph-card-num">${String(idx+1).padStart(2,'0')}</span>
+            <span class="ph-card-view-icon">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </span>
+          </div>`;
+        card.addEventListener('click',()=>openLightbox(idx,list));
+        card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(idx,list);}});
+        grid.appendChild(card);
+      });
+    }
+
+    function openLightbox(idx,list){
+      lbList=list;currentIndex=idx;
+      showLbPhoto();
+      lightbox.classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    function showLbPhoto(){
+      const p=lbList[currentIndex];
+      lbImg.src='Photography/'+p.file;
+      lbImg.alt=p.caption;
+      lbCounter.textContent=(currentIndex+1)+' / '+lbList.length+'  \u00b7  '+p.caption;
+    }
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      document.body.style.overflow='';
+      lbImg.src='';
+    }
+    lbClose.addEventListener('click',closeLightbox);
+    lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox();});
+    lbPrev.addEventListener('click',()=>{currentIndex=(currentIndex-1+lbList.length)%lbList.length;showLbPhoto();});
+    lbNext.addEventListener('click',()=>{currentIndex=(currentIndex+1)%lbList.length;showLbPhoto();});
+    document.addEventListener('keydown',e=>{
+      if(!lightbox.classList.contains('open'))return;
+      if(e.key==='Escape')closeLightbox();
+      if(e.key==='ArrowLeft'){currentIndex=(currentIndex-1+lbList.length)%lbList.length;showLbPhoto();}
+      if(e.key==='ArrowRight'){currentIndex=(currentIndex+1)%lbList.length;showLbPhoto();}
+    });
+
+    searchInp.addEventListener('input',()=>{
+      const q=searchInp.value.trim().toLowerCase();
+      filteredPhotos=q?photos.filter(p=>p.caption.toLowerCase().includes(q)||p.file.toLowerCase().includes(q)):[...photos];
+      buildGrid(filteredPhotos);
+    });
+
+    const layoutMap={'btn-grid4':'','btn-grid2':'grid-2','btn-list':'list-view'};
+    Object.keys(layoutMap).forEach(id=>{
+      document.getElementById(id).addEventListener('click',()=>{
+        Object.keys(layoutMap).forEach(b=>{
+          document.getElementById(b).classList.remove('active');
+          document.getElementById(b).setAttribute('aria-pressed','false');
+        });
+        document.getElementById(id).classList.add('active');
+        document.getElementById(id).setAttribute('aria-pressed','true');
+        grid.className='ph-grid '+layoutMap[id];
+      });
+    });
+
+    window.addEventListener('scroll',()=>{
+      const pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+      scrollBar.style.width=Math.min(pct,100)+'%';
+    },{passive:true});
+
+    buildGrid(photos);
+  </script>
+</body>
+</html>

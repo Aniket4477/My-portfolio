@@ -1743,13 +1743,19 @@
 
       </div>
 
-      <!-- Photography Load More Button (active when Photography is filtered) -->
+      <!-- Photography — View All Button (navigates to dedicated photography page) -->
       <div id="photography-load-more-wrap" style="text-align:center; margin-top:36px; display:none;">
-        <button id="load-more-photos-btn" class="filter-btn"
-          style="padding:12px 32px; font-size:0.85rem; letter-spacing:0.15em; cursor:pointer;"
-          aria-label="Load 20 more photography images">
-          📷 Load More Photos (<span id="photo-count-left"></span> remaining)
-        </button>
+        <a href="photography.html" id="load-more-photos-btn"
+          style="display:inline-flex; align-items:center; gap:10px; padding:12px 36px; font-size:0.85rem; letter-spacing:0.15em; cursor:pointer; text-decoration:none; font-family:var(--font-sub); font-weight:600; text-transform:uppercase; border-radius:8px; border:1px solid rgba(255,107,0,0.4); color:var(--chakra-orange); background:rgba(255,107,0,0.07); transition:all 0.3s ease;"
+          aria-label="View all photography photos"
+          onmouseover="this.style.background='rgba(255,107,0,0.18)';this.style.borderColor='var(--chakra-orange)';"
+          onmouseout="this.style.background='rgba(255,107,0,0.07)';this.style.borderColor='rgba(255,107,0,0.4)';">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          View Full Photography Gallery &rarr;
+        </a>
       </div>
 
       <!-- Coming soon note -->
