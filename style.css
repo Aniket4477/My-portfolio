@@ -389,6 +389,8 @@ ul, ol { list-style: none; }
 .gallery-item:hover .gallery-item-overlay { opacity: 1; }
 .gallery-item-label { font-family: var(--font-sub); font-size: 0.82rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em; }
 .gallery-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: var(--text-muted); font-family: var(--font-sub); font-size: 0.78rem; }
+.figma-badge { display: inline-flex; align-items: center; gap: 4px; font-family: var(--font-sub); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; color: var(--chakra-orange); background: rgba(255, 107, 0, 0.12); border: 1px solid rgba(255, 107, 0, 0.4); padding: 4px 14px; border-radius: 12px; transition: all var(--dur-fast); }
+.gallery-item:hover .figma-badge { background: rgba(255, 107, 0, 0.25); border-color: var(--chakra-orange); color: #fff; box-shadow: 0 0 12px rgba(255, 107, 0, 0.4); transform: scale(1.04); }
 
 /* CONTACT */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
