@@ -296,21 +296,69 @@ function updateWritingCardsOverflow() {
   });
 }
 
-function initWritingCardToggle() {
+/* ── Writing Modal (Large Frame Popup like Certificate Lightbox) ── */
+const writingModal = document.getElementById('writing-modal');
+const writingModalClose = document.getElementById('writing-modal-close');
+const writingModalBody = document.getElementById('writing-modal-body');
+const writingModalBadge = document.getElementById('writing-modal-badge');
+
+function openWritingModal(card) {
+  if (!writingModal) return;
+  const badge = card.querySelector('.writing-card-badge');
+  const body = card.querySelector('.writing-card-body');
+  
+  if (writingModalBadge && badge) {
+    writingModalBadge.textContent = badge.textContent.trim();
+  }
+  
+  if (writingModalBody && body) {
+    writingModalBody.innerHTML = body.innerHTML;
+    
+    // Check if writing is long: display half left side, half right side
+    const brCount = (body.innerHTML.match(/<br\s*\/?>/gi) || []).length;
+    const verseCount = body.querySelectorAll('.poem-verse').length;
+    const totalLines = brCount + verseCount;
+    const isLong = totalLines >= 6 || body.innerHTML.length > 250;
+    
+    writingModalBody.classList.toggle('multi-column', isLong);
+  }
+  
+  writingModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeWritingModal() {
+  if (!writingModal) return;
+  writingModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+if (writingModalClose) {
+  writingModalClose.addEventListener('click', closeWritingModal);
+}
+
+if (writingModal) {
+  writingModal.addEventListener('click', (e) => {
+    if (e.target === writingModal) closeWritingModal();
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && writingModal && writingModal.classList.contains('open')) {
+    closeWritingModal();
+  }
+});
+
+function initWritingCardClicks() {
   const cards = document.querySelectorAll('.gallery-item.writing-card');
   cards.forEach(card => {
     card.addEventListener('click', () => {
-      if (!card.classList.contains('has-overflow')) return;
-      const isExpanded = card.classList.toggle('expanded');
-      const indicator = card.querySelector('.writing-expand-indicator');
-      if (indicator) {
-        indicator.textContent = isExpanded ? 'Show less ▴' : 'Read full ▾';
-      }
+      openWritingModal(card);
     });
   });
 }
 
-initWritingCardToggle();
+initWritingCardClicks();
 window.addEventListener('resize', updateWritingCardsOverflow);
 
 filterBtns.forEach(btn => {
