@@ -263,6 +263,9 @@ function updatePhotoViewAllLink() {
 }
 
 function applyGalleryFilter(filter) {
+  if (galleryGrid) {
+    galleryGrid.classList.toggle('book-active', filter === 'book');
+  }
   document.querySelectorAll('.gallery-item').forEach(item => {
     const cat = item.dataset.category || '';
     const show = filter === 'all' || cat.split(' ').includes(filter);

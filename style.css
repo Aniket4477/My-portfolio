@@ -705,6 +705,71 @@ footer .footer-inner {
   margin-top: 2px;
 }
 
+/* ── Book Card Showcase (4:7 Ratio & Persistent Overlay) ── */
+.gallery-item.book-card {
+  aspect-ratio: 4 / 7 !important;
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid var(--chakra-orange);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 107, 0, 0.2);
+  display: block;
+}
+
+.gallery-item.book-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(1);
+}
+
+.gallery-item.book-card:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.2);
+}
+
+.gallery-item.book-card .book-card-overlay,
+.gallery-item.book-card .gallery-overlay {
+  opacity: 1 !important;
+  background: linear-gradient(to top, rgba(6, 6, 14, 0.96) 0%, rgba(6, 6, 14, 0.82) 28%, rgba(6, 6, 14, 0.3) 50%, transparent 68%) !important;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.book-card-title {
+  font-family: var(--font-sub), 'Rajdhani', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.book-card-rating {
+  font-family: var(--font-sub), 'Rajdhani', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--chakra-orange) !important;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+}
+
+.gallery-grid.book-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0;
+}
+
 /* Anime contact stat grid */
 .contact-stat-grid {
   display: grid;
