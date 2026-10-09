@@ -705,10 +705,10 @@ footer .footer-inner {
   margin-top: 2px;
 }
 
-/* ── Book Card Showcase (4:7 Ratio & Persistent Overlay) ── */
+/* ── Book Card Showcase (4:5 Ratio & Persistent Overlay) ── */
 .gallery-item.book-card {
-  aspect-ratio: 4 / 7 !important;
-  max-width: 320px;
+  aspect-ratio: 4 / 5 !important;
+  max-width: 340px;
   width: 100%;
   margin: 0 auto;
   border: 1px solid var(--chakra-orange);
