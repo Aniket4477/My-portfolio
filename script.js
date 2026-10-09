@@ -232,23 +232,48 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
 });
 
+/* ── Gallery Item Lightbox ── */
+document.querySelectorAll('.gallery-item[data-src]').forEach(item => {
+  item.addEventListener('click', () => {
+    if (item.tagName.toLowerCase() !== 'a') {
+      const src = item.dataset.src || null;
+      const caption = item.dataset.caption || '';
+      if (src) openLightbox(src, caption);
+    }
+  });
+  item.addEventListener('keydown', (e) => {
+    if (item.tagName.toLowerCase() !== 'a' && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      item.click();
+    }
+  });
+});
+
 /* ── Gallery Filter ── */
 const filterBtns = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
+
+function applyGalleryFilter(filter) {
+  galleryItems.forEach(item => {
+    const cat = item.dataset.category || '';
+    const show = filter === 'all' || cat.split(' ').includes(filter);
+    item.style.display = show ? 'block' : 'none';
+  });
+}
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
-    const filter = btn.dataset.filter;
-    galleryItems.forEach(item => {
-      const cat = item.dataset.category || 'all';
-      const show = filter === 'all' || cat.split(' ').includes(filter);
-      item.style.display = show ? 'block' : 'none';
-    });
+    applyGalleryFilter(btn.dataset.filter);
   });
 });
+
+// Run once on load for whichever button has .active
+const initialActiveBtn = document.querySelector('.filter-btn.active');
+if (initialActiveBtn) {
+  applyGalleryFilter(initialActiveBtn.dataset.filter);
+}
 
 /* ── Subtle Particle Canvas ── */
 (function initParticles() {
