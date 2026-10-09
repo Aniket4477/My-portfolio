@@ -280,7 +280,38 @@ function applyGalleryFilter(filter) {
     }
   });
   updatePhotoViewAllLink();
+  if (filter === 'writing') {
+    setTimeout(updateWritingCardsOverflow, 40);
+  }
 }
+
+/* ── Writing Card Tap to Expand / Collapse ── */
+function updateWritingCardsOverflow() {
+  const cards = document.querySelectorAll('.gallery-item.writing-card');
+  cards.forEach(card => {
+    const body = card.querySelector('.writing-card-body');
+    if (!body) return;
+    const isOverflowing = body.scrollHeight > 225;
+    card.classList.toggle('has-overflow', isOverflowing);
+  });
+}
+
+function initWritingCardToggle() {
+  const cards = document.querySelectorAll('.gallery-item.writing-card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      if (!card.classList.contains('has-overflow')) return;
+      const isExpanded = card.classList.toggle('expanded');
+      const indicator = card.querySelector('.writing-expand-indicator');
+      if (indicator) {
+        indicator.textContent = isExpanded ? 'Show less ▴' : 'Read full ▾';
+      }
+    });
+  });
+}
+
+initWritingCardToggle();
+window.addEventListener('resize', updateWritingCardsOverflow);
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -294,6 +325,7 @@ filterBtns.forEach(btn => {
 const initialActiveBtn = document.querySelector('.filter-btn.active');
 if (initialActiveBtn) {
   applyGalleryFilter(initialActiveBtn.dataset.filter);
+  setTimeout(updateWritingCardsOverflow, 150);
 }
 
 
