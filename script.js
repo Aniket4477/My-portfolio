@@ -249,16 +249,197 @@ document.querySelectorAll('.gallery-item[data-src]').forEach(item => {
   });
 });
 
-/* ── Gallery Filter ── */
+/* ── Gallery Filter & Photography Load More ── */
 const filterBtns = document.querySelectorAll('.filter-btn');
-const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryGrid = document.querySelector('.gallery-grid');
+const loadMoreWrap = document.getElementById('photography-load-more-wrap');
+const loadMoreBtn = document.getElementById('load-more-photos-btn');
+const countLeftEl = document.getElementById('photo-count-left');
+
+// Remaining photography photos (113 items)
+const remainingPhotos = [
+  "20250116_125541 - Copy.jpg",
+  "20250605_160235.jpg",
+  "20250605_161306.jpg",
+  "20250605_161616.jpg",
+  "20250605_162439.jpg",
+  "20250605_163536.jpg",
+  "ESRCDGTFVNHJ.png",
+  "IMG-20251225-WA0010.jpg",
+  "IMG-20260906-WA0024.jpg",
+  "IMG20240726152202[1] copy.jpg",
+  "IMG20250116135259.jpg",
+  "IMG20250929165228.jpg",
+  "IMG20251001222238.jpg",
+  "IMG20251010160144.jpg",
+  "IMG20251010170025.jpg",
+  "IMG20251010171742.jpg",
+  "IMG20251011131005.jpg",
+  "IMG20251012104345.jpg",
+  "IMG20251012134818.jpg",
+  "IMG20251012140310.jpg",
+  "IMG20251012174934.jpg",
+  "IMG20251020112444_20260111022528.jpg",
+  "IMG20251022162137_20260111022903.jpg",
+  "IMG20251022162157_20260111022902.jpg",
+  "IMG20251025162854.jpg",
+  "IMG20251107133723.jpg",
+  "IMG20251211102416.jpg",
+  "IMG20251211225425.jpg",
+  "IMG20251211225551.jpg",
+  "IMG20251219150203.jpg",
+  "IMG20251219150214.jpg",
+  "IMG20251223214826.jpg",
+  "IMG20251225163947_01.jpg",
+  "IMG20251225173144.jpg",
+  "IMG20260101092017.jpg",
+  "IMG20260101095212_01.jpg",
+  "IMG20260101100619.jpg",
+  "IMG20260102172007.jpg",
+  "IMG20260121153927.jpg",
+  "IMG20260121153939 (1).jpg",
+  "IMG20260121153952.jpg",
+  "IMG20260202113306.jpg",
+  "IMG20260305102018 (1).jpg",
+  "IMG20260602093520.jpg",
+  "IMG20260610102852 (1) (1) (1) (1).jpg",
+  "IMG20260610102940.jpg",
+  "IMG20260610130739.jpg",
+  "IMG20260610130922.jpg",
+  "IMG20260614215459.jpg",
+  "IMG20260616213615.jpg",
+  "IMG20260617050037.jpg",
+  "IMG20260730110451.jpg",
+  "IMG20260730110502.jpg",
+  "IMG20260730110620.jpg",
+  "IMG20260730110655 (1).jpg",
+  "IMG20260730110822.jpg",
+  "IMG20260730133604.jpg",
+  "IMG20260730133615.jpg",
+  "IMG20260730133618.jpg",
+  "IMG20260730133623.jpg",
+  "IMG20260730133625.jpg",
+  "IMG20260730133636.jpg",
+  "IMG20260802150827.jpg",
+  "IMG20260806114231.jpg",
+  "IMG20260806114245.jpg",
+  "IMG20260806114339.jpg",
+  "IMG20260806114532.jpg",
+  "IMG20260806114539.jpg",
+  "IMG20260806121944 (1).jpg",
+  "IMG20260806121944.jpg",
+  "IMG20260806122021.jpg",
+  "IMG20260806122146.jpg",
+  "IMG20260806122319.jpg",
+  "IMG20260806122347.jpg",
+  "IMG20260806122556.jpg",
+  "IMG20260806122857.jpg",
+  "IMG20260806122944.jpg",
+  "IMG20260806122955.jpg",
+  "IMG20260819062254.jpg",
+  "IMG20260820055619.jpg",
+  "IMG20260820055919.jpg",
+  "IMG20260820055920.jpg",
+  "IMG20260820060226.jpg",
+  "IMG20260820060654.jpg",
+  "IMG20260820060830 (1).jpg",
+  "IMG20260820060830 (2).jpg",
+  "IMG20260820060830 (4).jpg",
+  "IMG20260820063909.jpg",
+  "IMG20260820065118.jpg",
+  "IMG20260820065307.jpg",
+  "IMG20261005163427.jpg",
+  "IMG20261005163452.jpg",
+  "IMG20261005164450.jpg",
+  "IMG20261005165250.jpg",
+  "IMG_0174.jpg",
+  "IMG_20251011_010023.jpg",
+  "IMG_20251014_170444.jpg",
+  "IMG_20251014_170635.jpg",
+  "IMG_20251014_171359.jpg",
+  "IMG_20251130_233430.jpg",
+  "IMG_20251205_192717.jpg",
+  "IMG_20251212_000930.jpg",
+  "IMG_20251226_214634.jpg",
+  "IMG_20260105_063448088.jpg",
+  "IMG_20260313_023536_777.jpg",
+  "IMG_20260313_023604_440.jpg",
+  "IMG_20260313_234129.jpg",
+  "IMG_20260731_080415.jpg",
+  "Layer 7.png",
+  "RZXCTFBHJ.png",
+  "erexhcvygbhnjm.png",
+  "zxcvgbn.png",
+  "zxfcgbhj.png"
+];
+
+function updateRemainingCount() {
+  if (countLeftEl) {
+    countLeftEl.textContent = remainingPhotos.length;
+  }
+  if (loadMoreWrap) {
+    const currentActive = document.querySelector('.filter-btn.active');
+    const isPhotoActive = currentActive && currentActive.dataset.filter === 'photo';
+    if (isPhotoActive && remainingPhotos.length > 0) {
+      loadMoreWrap.style.display = 'block';
+    } else {
+      loadMoreWrap.style.display = 'none';
+    }
+  }
+}
+
+function loadNextPhotos(batchSize = 20) {
+  if (!galleryGrid || remainingPhotos.length === 0) return;
+  const batch = remainingPhotos.splice(0, batchSize);
+
+  batch.forEach(fn => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item reveal';
+    item.setAttribute('role', 'listitem');
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('data-category', 'photo');
+    item.setAttribute('data-src', `Photography/${fn}`);
+    item.setAttribute('data-caption', 'Photography — Visual Capture by Aniket Kumar');
+    item.setAttribute('aria-label', 'View photo');
+    item.innerHTML = `
+      <img src="Photography/${fn}" alt="Photography by Aniket Kumar" loading="lazy" />
+      <div class="gallery-overlay" aria-hidden="true">
+        <div class="gallery-item-title">Visual Capture</div>
+        <div class="gallery-item-cat">Photography · Aniket Kumar</div>
+      </div>
+    `;
+
+    // Click & Keyboard Lightbox
+    item.addEventListener('click', () => {
+      openLightbox(`Photography/${fn}`, 'Photography — Visual Capture by Aniket Kumar');
+    });
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        item.click();
+      }
+    });
+
+    galleryGrid.appendChild(item);
+  });
+
+  updateRemainingCount();
+}
+
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener('click', () => {
+    loadNextPhotos(20);
+  });
+}
 
 function applyGalleryFilter(filter) {
-  galleryItems.forEach(item => {
+  const allItems = document.querySelectorAll('.gallery-item');
+  allItems.forEach(item => {
     const cat = item.dataset.category || '';
     const show = filter === 'all' || cat.split(' ').includes(filter);
     item.style.display = show ? 'block' : 'none';
   });
+  updateRemainingCount();
 }
 
 filterBtns.forEach(btn => {
@@ -269,7 +450,8 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Run once on load for whichever button has .active
+// Initialize remaining count and filter on load
+updateRemainingCount();
 const initialActiveBtn = document.querySelector('.filter-btn.active');
 if (initialActiveBtn) {
   applyGalleryFilter(initialActiveBtn.dataset.filter);
