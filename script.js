@@ -244,7 +244,7 @@ filterBtns.forEach(btn => {
     const filter = btn.dataset.filter;
     galleryItems.forEach(item => {
       const cat = item.dataset.category || 'all';
-      const show = filter === 'all' || cat === filter;
+      const show = filter === 'all' || cat.split(' ').includes(filter);
       item.style.display = show ? 'block' : 'none';
     });
   });
